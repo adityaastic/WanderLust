@@ -2,8 +2,6 @@ if(process.env.NODE_ENV != "production"){
     require("dotenv").config();
 }
 
-console.log(process.env.SECRET); 
-
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
@@ -70,11 +68,11 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req,res,next) => {
-  res.locals.success = req.flash("success");
-  res.locals.error = req.flash("error");
-  res.locals.currUser = req.user;
-
-  next();
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+    res.locals.currUser = req.user;
+    
+    next();
 });
 
 //demo useer
@@ -107,3 +105,4 @@ app.use((err, req,res,next) => {
 app.listen( 8080 , () => {
     console.log("server is listening to port 8080");
 });
+
