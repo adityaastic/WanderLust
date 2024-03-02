@@ -52,10 +52,7 @@ const sessionOptions = {
 };
 
 //Creating a API
-app.get("/", (req,res) => {
-    res.send("Hi , I am root");
 
-});
 
 app.use(session(sessionOptions));
 app.use(flash());
@@ -105,4 +102,3 @@ app.use((err, req,res,next) => {
 app.listen( 8080 , () => {
     console.log("server is listening to port 8080");
 });
-
